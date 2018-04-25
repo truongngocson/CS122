@@ -8,7 +8,7 @@ class Phanso
         int mauso;
     public:
         
-        //seters
+        //setters
         void setphanso(int a, int b){
             this->tuso = a;
             this->mauso = b;
@@ -23,7 +23,7 @@ class Phanso
             this->mauso = ss;
         }
     
-        //geters
+        //getters
         int getTuso()
         {
             return this->tuso;
