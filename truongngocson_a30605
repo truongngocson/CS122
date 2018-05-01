@@ -1,0 +1,93 @@
+#include <iostream>
+using namespace std;
+class Phanso
+{
+	private:
+		int tuso;
+		int mauso;
+	public:
+		void xuat()
+		{
+			cout<<tuso<<"/"<<mauso<<endl;
+		}
+		void setphanso(int a, int b)
+		{
+			this-> tuso=a;
+			this-> mauso=b;
+		}
+		int gettuso()
+		{
+			return this-> tuso;
+		}
+		int getmauso()
+		{
+			return this-> mauso;
+		}
+
+		Phanso cong2phanso(Phanso b)
+		{
+			Phanso kq;
+			kq.setphanso(this->tuso*b.getmauso() + this->mauso*b.gettuso() , this->mauso*b.getmauso());
+			return kq;
+
+		}
+		Phanso congvoi1so(int c)
+		{
+			Phanso kq;
+			kq.setphanso(this->tuso + this->mauso*c , this->mauso);
+			return kq;
+
+		}
+		Phanso tru2phanso(Phanso d)
+		{
+			Phanso kq;
+			kq.setphanso(this->tuso*d.getmauso()-this->mauso*d.gettuso() , this->mauso*d.getmauso());
+			return kq;
+		}
+		Phanso truvoi1so(int c)
+		{
+			Phanso kq;
+			kq.setphanso(this->tuso-this->mauso*c , this->mauso);
+			return kq;
+		}
+		Phanso nhan2phanso(Phanso b)
+		{
+			Phanso kq;
+			kq.setphanso(this->tuso*b.gettuso() , this->mauso*b.getmauso());
+			return kq;
+		}
+		Phanso nhanvoi1so(int b)
+		{
+			Phanso kq;
+			kq.setphanso(this->tuso*b , this->mauso);
+			return kq;
+		}
+		Phanso Toigian()
+		{
+		int a= this -> tuso;
+		int b= this -> mauso;
+		int temp;
+		while (b != 0)
+			{
+				temp = a % b;
+				a = b;
+				b = temp;	
+			}
+		this -> tuso /= a;
+		this -> mauso /= a;
+		return *this;
+		}
+
+
+
+};
+int main()
+{
+	Phanso a,b;
+	a.setphanso(5,6);
+	b.setphanso(4,7);
+	Phanso kq= a.nhan2phanso(b);
+	kq.Toigian();
+	kq.xuat();
+	return 0;
+}
